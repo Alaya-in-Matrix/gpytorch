@@ -34,7 +34,7 @@ class MarginalLogLikelihood(Module):
                 "model, not a full PyTorch module."
             )
         self.likelihood = likelihood
-        self.model = model
+        self.gp_model = model
 
     def forward(self, output, target, **kwargs):
         """

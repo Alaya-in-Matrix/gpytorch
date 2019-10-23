@@ -27,7 +27,6 @@ __all__ = [
     "GP",
     "GridInducingVariationalGP",
     "IndependentModelList",
-    "PyroVariationalGP",
     "VariationalGP",
     "deep_gps",
 ]

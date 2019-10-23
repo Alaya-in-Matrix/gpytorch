@@ -27,7 +27,7 @@ class ExactMarginalLogLikelihood(MarginalLogLikelihood):
         res = output.log_prob(target)
 
         # Add additional terms (SGPR / learned inducing points, heteroskedastic likelihood models)
-        for added_loss_term in self.model.added_loss_terms():
+        for added_loss_term in self.gp_model.added_loss_terms():
             res = res.add(added_loss_term.loss(*params))
 
         # Add log probs of priors on the (functions of) parameters

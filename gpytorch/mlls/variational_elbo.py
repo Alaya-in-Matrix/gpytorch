@@ -98,8 +98,8 @@ class VariationalELBOEmpirical(VariationalELBO):
 
     def forward(self, variational_dist_f, target, **kwargs):
         num_batch = variational_dist_f.event_shape[0]
-        variational_dist_u = self.model.variational_strategy.variational_distribution
-        prior_dist = self.model.variational_strategy.prior_distribution
+        variational_dist_u = self.gp_model.variational_strategy.variational_distribution
+        prior_dist = self.gp_model.variational_strategy.prior_distribution
 
         log_likelihood = self.likelihood.expected_log_prob(target, variational_dist_f, **kwargs)
         log_likelihood = log_likelihood.div(num_batch)
