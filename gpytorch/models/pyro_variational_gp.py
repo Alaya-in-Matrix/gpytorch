@@ -17,6 +17,7 @@ class PyroVariationalGP(AbstractVariationalGP):
         # Draw samples from q(u) for KL divergence computation
         self.sample_inducing_values(inducing_dist)
         self.likelihood.guide(*params, **kwargs)
+        sample_shape = pyro.sample("__throwaway__", pyro.distributions.Normal(0, 1)).shape
 
     def model(self, input, output, *params, **kwargs):
         pyro.module(self.name_prefix + ".gp_prior", self)

@@ -38,7 +38,7 @@ class TestMultitaskGaussianLikelihoodBatch(TestMultitaskGaussianLikelihood):
 
 
 class TestMultitaskGaussianLikelihoodMultiBatch(TestMultitaskGaussianLikelihood):
-    seed = 0
+    seed = 1
 
     def create_likelihood(self):
         return MultitaskGaussianLikelihood(num_tasks=4, rank=2, batch_shape=torch.Size([2, 3]))
